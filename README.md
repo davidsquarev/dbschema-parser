@@ -102,7 +102,7 @@ Extrapoliation of the DbSchema `Project` object.  Assumes all schemas are contai
 ## Operations
 Generally speaking, the Parser is meant to be used for navigating, or "walking", the DbSchema-generated heirarchy.  However, for convenience, one operation is available:
 
-###print(spacing)  
+### print(spacing)  
 Prints the heirarchy in a human-readible YML-like indented structure:
 ```
 Database: resources
