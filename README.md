@@ -70,20 +70,20 @@ Extrapoliation of the DbSchema `Project` object.  Assumes all schemas are contai
  - `mandatory`: `boolean`: Is the column required or `NOT NULL`
  - `relationships`: `array[Column]`: **(not required)** Any columns referencing this column in a foreign key.
  - `parent`: `object`: **(not required)** The target PK column if a foreign key exists:
- 
+
  ```
  parent: {
      schema: {
          name: '',
-         item: 
+         item:
      },
      table: {
          name: '',
-         item: 
+         item:
      },
      column: {
          name: '',
-         item: 
+         item:
      }
  }
  ```
@@ -102,7 +102,7 @@ Extrapoliation of the DbSchema `Project` object.  Assumes all schemas are contai
 ## Operations
 Generally speaking, the Parser is meant to be used for navigating, or "walking", the DbSchema-generated heirarchy.  However, for convenience, one operation is available:
 
-###print(spacing)
+###print(spacing)  
 Prints the heirarchy in a human-readible YML-like indented structure:
 ```
 Database: resources
@@ -231,4 +231,3 @@ MEAN Factory is an initiative to help teach software development focusing on the
 
 [http://meanfactory.com](http://www.meanfactory.com)  
 [info@meanfactory.com](mailto:info@meanfactory.com)  
-
