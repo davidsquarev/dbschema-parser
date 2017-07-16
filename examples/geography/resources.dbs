@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="resources" id="Project_20598f8" template="Default" database="MySql" >
+	<schema name="geography" schemaname="geography" >
+		<table name="city" >
+			<column name="id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="state_id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="idx_city" unique="UNIQUE" >
+				<column name="state_id" />
+				<column name="name" />
+			</index>
+			<index name="idx_city_0" unique="NORMAL" >
+				<column name="state_id" />
+			</index>
+			<index name="pk_city" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_city" to_schema="geography" to_table="state" >
+				<fk_column name="state_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="country" >
+			<column name="id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="idx_country" unique="UNIQUE" >
+				<column name="name" />
+			</index>
+			<index name="pk_country" unique="UNIQUE" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="postal_code" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="country_id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="state_id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="city_id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="value" type="varchar" length="10" jt="12" />
+			<index name="pk_postal_code" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_postal_code" unique="UNIQUE" >
+				<column name="country_id" />
+				<column name="state_id" />
+				<column name="city_id" />
+				<column name="value" />
+			</index>
+			<index name="idx_postal_code_0" unique="NORMAL" >
+				<column name="country_id" />
+			</index>
+			<index name="idx_postal_code_1" unique="NORMAL" >
+				<column name="state_id" />
+			</index>
+			<index name="idx_postal_code_2" unique="NORMAL" >
+				<column name="city_id" />
+			</index>
+			<fk name="fk_postal_code" to_schema="geography" to_table="country" >
+				<fk_column name="country_id" pk="id" />
+			</fk>
+			<fk name="fk_postal_code_0" to_schema="geography" to_table="state" >
+				<fk_column name="state_id" pk="id" />
+			</fk>
+			<fk name="fk_postal_code_1" to_schema="geography" to_table="city" >
+				<fk_column name="city_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="state" >
+			<column name="id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="country_id" type="char" length="3" jt="1" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="idx_state" unique="UNIQUE" >
+				<column name="country_id" />
+				<column name="name" />
+			</index>
+			<index name="idx_state_0" unique="NORMAL" >
+				<column name="country_id" />
+			</index>
+			<index name="pk_state_0" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_state" to_schema="geography" to_table="country" >
+				<fk_column name="country_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+	</schema>
+	<layout name="geography" id="Layout_229254e" show_relation="columns" >
+		<entity schema="geography" name="country" color="c1d8ee" x="48" y="48" />
+		<entity schema="geography" name="state" color="c1d8ee" x="48" y="160" />
+		<entity schema="geography" name="city" color="c1d8ee" x="48" y="288" />
+		<entity schema="geography" name="postal_code" color="c1d8ee" x="256" y="144" />
+	</layout>
+</project>
