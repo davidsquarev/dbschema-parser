@@ -1,15 +1,8 @@
 {
   "name": "dbschema-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parses DBSchema document into JavaScript. Exports to JSON.",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MEANFactory/dbschema-parser.git"
-  },
   "keywords": [
     "dbschema",
     "parser",
@@ -22,17 +15,25 @@
     "email": "info@meanfactory.com",
     "url": "http://www.meanfactory.com"
   },
-  "contributors": [{
-    "name": "Fred Lackey",
-    "email": "fred.lackey@gmail.com",
-    "url": "http://www.fredlackey.com"
-  }],
+  "contributors": [
+    {
+      "name": "Fred Lackey",
+      "email": "fred.lackey@gmail.com",
+      "url": "http://www.fredlackey.com"
+    }
+  ],
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MEANFactory/dbschema-parser.git"
+  },
   "bugs": {
     "url": "https://github.com/MEANFactory/dbschema-parser/issues"
   },
   "homepage": "https://github.com/MEANFactory/dbschema-parser#readme",
   "dependencies": {
+    "moment": "^2.18.1",
+    "shelljs": "^0.7.8",
     "xml2json": "^0.11.0"
   }
 }
